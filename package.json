@@ -1,0 +1,39 @@
+{
+  "name": "blockchain-ico-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon bin/www"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/classnames": "^2.3.1",
+    "axios": "^1.2.2",
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "googleapis": "^110.0.0",
+    "jsonwebtoken": "^9.0.0",
+    "md5": "^2.3.0",
+    "moment": "^2.29.4",
+    "mongoose": "^6.8.3",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.9.0",
+    "pdfjs": "^2.5.2",
+    "pdfmake": "^0.2.7",
+    "roboto-font": "^0.1.0",
+    "twilio": "^3.84.1",
+    "uuid": "^9.0.0",
+    "validatorjs": "^3.22.1",
+    "winston": "^3.8.2"
+  },
+  "devDependencies": {
+    "chalk": "^5.2.0",
+    "nodemon": "^2.0.20"
+  }
+}

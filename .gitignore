@@ -1,0 +1,5 @@
+commands/*
+spark.js
+node_modules
+.env
+frontend-build/*
