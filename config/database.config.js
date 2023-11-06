@@ -9,6 +9,7 @@ function initDatabase() {
         : process.env.MONGODB_URI;
 
     return new Promise((resolve, reject) => {
+        db.set('strictQuery', true);
         db.connect(
             DB_URI,
             { useNewUrlParser: true, useUnifiedTopology: true })

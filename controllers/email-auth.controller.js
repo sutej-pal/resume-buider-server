@@ -49,14 +49,14 @@ module.exports = class EmailAuthController {
         }
 
         // send mail
-        await mail()
-            .to(email)
-            .subject("Verify your account")
-            .body(`<a href="http://localhost:5173/verify-email?token=${user.emailVerificationToken}&email=${user.email}">Click here</a>`)
-            .send();
+        // await mail()
+        //     .to(email)
+        //     .subject("Verify your account")
+        //     .body(`<a href="http://localhost:5173/verify-email?token=${user.emailVerificationToken}&email=${user.email}">Click here</a>`)
+        //     .send();
 
         return res.json({
-            message: "User account created, check mail",
+            message: "User account created",
             user: new UserResource(user)
         });
     }
