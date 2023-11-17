@@ -19,12 +19,12 @@ const Schema = mongoose.Schema({
     isEmailVerified: {
         type: Boolean,
         required: false,
-        default: false,
+        default: true,
     },
     isMobileVerified: {
         type: Boolean,
         required: false,
-        default: false,
+        default: true,
     },
     otp: Number,
     emailVerificationToken: String,

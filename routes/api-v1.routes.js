@@ -3,6 +3,7 @@ const EmailAuthController = require("../controllers/email-auth.controller");
 const MobileAuthController = require("../controllers/mobile-auth.controller");
 const ProfileController = require("../controllers/profile.controller");
 const TemplateController = require("../controllers/template.controller");
+const ResumeController = require("../controllers/template.controller");
 const AuthMiddleware = require("../middlewares/auth.middleware");
 const handle404Middleware = require("../middlewares/handle-404.middleware");
 const LoginEmailValidator = require("../validators/auth/login-email.validator");
@@ -26,6 +27,9 @@ apiRouter.post("/login/mobile", LoginMobileValidator.middleware, MobileAuthContr
 apiRouter.get("/my/profile", AuthMiddleware, ProfileController.getProfile);
 
 
+apiRouter.post("/resume", ResumeController.create);
+apiRouter.patch("/resume/:id", ResumeController.update);
+apiRouter.get("/resume/:id", ResumeController.generateResume);
 apiRouter.get("/pdf/generate-pdf", TemplateController.getPDF);
 
 

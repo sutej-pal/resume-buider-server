@@ -4,8 +4,8 @@ function initDatabase() {
 
     const db = require('mongoose');
 
-    const DB_URI = process.env.NODE_ENV === "test"
-        ? process.env.MONGODB_URI_TEST
+    const DB_URI = process.env.NODE_ENV === "development"
+        ? process.env.MONGODB_URI_DEVELOPMENT
         : process.env.MONGODB_URI;
 
     return new Promise((resolve, reject) => {
