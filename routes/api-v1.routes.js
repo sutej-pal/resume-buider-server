@@ -2,8 +2,8 @@ const express = require("express");
 const EmailAuthController = require("../controllers/email-auth.controller");
 const MobileAuthController = require("../controllers/mobile-auth.controller");
 const ProfileController = require("../controllers/profile.controller");
-const TemplateController = require("../controllers/template.controller");
-const ResumeController = require("../controllers/template.controller");
+// const TemplateController = require("../controllers/template.controller");
+const ResumeController = require("../controllers/resume.controller");
 const AuthMiddleware = require("../middlewares/auth.middleware");
 const handle404Middleware = require("../middlewares/handle-404.middleware");
 const LoginEmailValidator = require("../validators/auth/login-email.validator");
@@ -12,6 +12,7 @@ const RegisterEmailValidator = require("../validators/auth/register-email.valida
 const RegisterMobileValidator = require("../validators/auth/register-mobile.validator");
 const VerifyEmailValidator = require("../validators/auth/verify-email.validator");
 const VerifyMobileValidator = require("../validators/auth/verify-mobile.validator");
+const PatchResumeValidator = require("../validators/resume/patch-resume.validator");
 
 const apiRouter = express.Router();
 
@@ -27,10 +28,10 @@ apiRouter.post("/login/mobile", LoginMobileValidator.middleware, MobileAuthContr
 apiRouter.get("/my/profile", AuthMiddleware, ProfileController.getProfile);
 
 
-apiRouter.post("/resume", ResumeController.create);
-apiRouter.patch("/resume/:id", ResumeController.update);
-apiRouter.get("/resume/:id", ResumeController.generateResume);
-apiRouter.get("/pdf/generate-pdf", TemplateController.getPDF);
+apiRouter.post("/resume", AuthMiddleware, ResumeController.create);
+apiRouter.patch("/resumes/:id", PatchResumeValidator.middleware, AuthMiddleware, ResumeController.update);
+apiRouter.get("/resumes/:id", AuthMiddleware, ResumeController.generateResume);
+// apiRouter.get("/pdf/generate-pdf", AuthMiddleware, TemplateController.getPDF);
 
 
 

@@ -1,6 +1,7 @@
 const { generatePDF, getPDFPrinter } = require("../helpers/template.helper");
 const UserResource = require("../resources/user.resource");
 const fs = require('fs');
+const mongoose = require('mongoose');
 const Resume = require('../models/resume');
 module.exports = class TemplateController {
 
@@ -62,13 +63,15 @@ module.exports = class TemplateController {
 
     static async update(req, res) {
         try {
-            const { id } = req.params;
+            let { id } = req.params;
+            id = mongoose.Types.ObjectId(id);
             const data = req.body;
             console.log('id =>', id);
             const resume = await Resume.findOneAndUpdate({ _id: id }, data, { new: true });
-            console.log(resume)
+            console.log(resume);
             return res.json({ message: 'Updated', data: resume });
         } catch (error) {
+            console.log(error);
             return res.json({ failed: true });
         }
     }
